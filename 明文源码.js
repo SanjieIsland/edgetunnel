@@ -1,8 +1,8 @@
 
 import { connect } from 'cloudflare:sockets';
 
-let userID = '';
-let proxyIP = '';
+let userID = 'ce2824eb-9bc1-4369-c574-8a769b203df9';
+let proxyIP = 'bestcf.onecf.eu.org,cf.zhetengsha.eu.org';
 //let sub = '';
 let subConverter = atob('U1VCQVBJLkNNTGl1c3Nzcy5uZXQ=');
 let subConfig = atob('aHR0cHM6Ly9yYXcuZ2l0aHVidXNlcmNvbnRlbnQuY29tL0FDTDRTU1IvQUNMNFNTUi9tYXN0ZXIvQ2xhc2gvY29uZmlnL0FDTDRTU1JfT25saW5lX01pbmlfTXVsdGlNb2RlLmluaQ==');
@@ -17,10 +17,10 @@ const expire = 4102329600;//2099-12-31
 let proxyIPs;
 let socks5s;
 let go2Socks5s = [
-	'*ttvnw.net',
-	'*tapecontent.net',
-	'*cloudatacdn.com',
-	'*.loadshare.org',
+	'*ttvnw.net'，
+	'*tapecontent.net'，
+	'*cloudatacdn.com'，
+	'*.loadshare.org'，
 ];
 let addresses = [];
 let addressesapi = [];
@@ -35,8 +35,8 @@ let ChatID;
 let proxyhosts = [];
 let proxyhostsURL = '';
 let RproxyIP = 'false';
-const httpPorts = ["8080", "8880", "2052", "2082", "2086", "2095"];
-let httpsPorts = ["2053", "2083", "2087", "2096", "8443"];
+const httpPorts = ["8080"， "8880"， "2052"， "2082"， "2086"， "2095"];
+let httpsPorts = ["2053"， "2083"， "2087"， "2096"， "8443"];
 let 有效时间 = 7;
 let 更新时间 = 3;
 let userIDLow;
@@ -46,24 +46,24 @@ let path = '/?ed=2560';
 let 动态UUID;
 let link = [];
 let banHosts = [atob('c3BlZWQuY2xvdWRmbGFyZS5jb20=')];
-export default {
-	async fetch(request, env, ctx) {
+export 默认 {
+	async fetch(request， env， ctx) {
 		try {
-			const UA = request.headers.get('User-Agent') || 'null';
-			const userAgent = UA.toLowerCase();
-			userID = env.UUID || env.uuid || env.PASSWORD || env.pswd || userID;
-			if (env.KEY || env.TOKEN || (userID && !isValidUUID(userID))) {
-				动态UUID = env.KEY || env.TOKEN || userID;
-				有效时间 = Number(env.TIME) || 有效时间;
-				更新时间 = Number(env.UPTIME) || 更新时间;
+			const UA = request。headers。get('User-Agent') || 'null';
+			const userAgent = UA。toLowerCase();
+			userID = env。UUID || env。uuid || env。PASSWORD || env。pswd || userID;
+			if (env。KEY || env。TOKEN || (userID && !isValidUUID(userID))) {
+				动态UUID = env。KEY || env。TOKEN || userID;
+				有效时间 = Number(env。TIME) || 有效时间;
+				更新时间 = Number(env。UPTIME) || 更新时间;
 				const userIDs = await 生成动态UUID(动态UUID);
 				userID = userIDs[0];
 				userIDLow = userIDs[1];
 			}
 
 			if (!userID) {
-				return new Response('请设置你的UUID变量，或尝试重试部署，检查变量是否生效？', {
-					status: 404,
+				return new Response('请设置你的UUID变量，或尝试重试部署，检查变量是否生效？'， {
+					status: 404，
 					headers: {
 						"Content-Type": "text/plain;charset=utf-8",
 					}
